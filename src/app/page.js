@@ -9,7 +9,7 @@ export default function Home() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const API_KEY =" cbe81e5924160520ab9932d7a8845f28";
+    const API_KEY = "cbe81e5924160520ab9932d7a8845f28";
     const getMovies = async () => {
       try {
         const popular = await axios.get(
