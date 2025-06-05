@@ -7,9 +7,10 @@ const Card = ({ movie }) => {
       <div className="p-4 border rounded-lg bg-blue-100 hover:shadow-lg transition-shadow duration-300 min-w-[15px] h-90 ">
         <div className="relative w-40 h-55">
           <Image
+            fill
             src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
             alt={movie.title}
-            fill
+            
             className="object-cover rounded"
           />
         </div>

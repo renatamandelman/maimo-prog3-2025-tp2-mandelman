@@ -1,41 +1,9 @@
-"use client";
-import Carrousel from "@/components/Carrousel";
-import axios from "axios";
-import { useState, useEffect } from "react";
-// https://api.themoviedb.org/3/genre/movie/list?language=en'
-export default function Home() {
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
-  const [error, setError] = useState(false);
+import HomeContainer from '@/components/HomeContainer'
 
-  useEffect(() => {
-    const API_KEY = "cbe81e5924160520ab9932d7a8845f28";
-    const getMovies = async () => {
-      try {
-        const popular = await axios.get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-        );
-        const popularData = popular.data.results;
-        setPopularMovies(popularData);
-        console.log(popularData);
-
-        const nowPlaying = await axios.get(
-          `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
-        );
-        const nowPlayingData = nowPlaying.data.results;
-        setNowPlayingMovies(nowPlayingData);
-        console.log(nowPlayingData);
-      } catch (error) {
-        console.log("el error es:" + error);
-        setError(true);
-      }
-    };
-    getMovies();
-  }, []);
+const page = () => {
   return (
-    <>
-    <Carrousel titulo="Las peliculas mas populares" movies={popularMovies} />
-    <Carrousel titulo="Las peliculas del momento" movies={nowPlayingMovies} />
-</>
-  );
+    <HomeContainer />
+  )
 }
+
+export default page
