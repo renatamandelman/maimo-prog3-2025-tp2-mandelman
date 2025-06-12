@@ -45,18 +45,13 @@ const InfoMovie = ({ id }) => {
               className="w-[200px] h-auto rounded shadow-lg"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             />
-            <div className="flex-1 space-y-4 text-gray-800">
+            <div className="flex-1 space-y-4 ">
               <p>
                 <span className="font-semibold">Fecha de estreno:</span>{" "}
                 {movie.release_date}
               </p>
-              {/* <p>
-          <span className="font-semibold">Idiomas:</span> {movie.spoken_languages.map(lang => lang.iso_639_1.toUpperCase()).join(', ')}
-        </p>
-        <p>
-          <span className="font-semibold">Géneros:</span> {movie.genres.map(genero => genero.name).join(', ')}
-        </p> */}
-              {movie.adult && <p className="text-red-600 font-bold">+18</p>}
+            
+       
             </div>
           </div>
         </div>
