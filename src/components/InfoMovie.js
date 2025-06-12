@@ -26,17 +26,8 @@ const InfoMovie = ({ id }) => {
   return (
     movie && (
       <>
-        <div className="w-full">
-          <Image
-            width={100}
-            height={100}
-            alt={movie.title}
-            className="w-full h-auto object-cover"
-            src={`${movie.backdrop_path}`}
-          />
-        </div>
-
-        <div className="p-6">
+      
+        <div className="p-6 ml-20 text-white">
           <Link
             href="/"
             className="inline-block mb-4 px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600"
@@ -52,7 +43,7 @@ const InfoMovie = ({ id }) => {
               height={100}
               alt={movie.title}
               className="w-[200px] h-auto rounded shadow-lg"
-              src={`${movie.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             />
             <div className="flex-1 space-y-4 text-gray-800">
               <p>

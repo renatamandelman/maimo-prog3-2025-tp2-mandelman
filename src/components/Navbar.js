@@ -3,7 +3,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <>
-      <nav className="flex flex-col items-center h-screen w-20 px-2 py-4 bg-gray-900 text-white fixed left-0 top-0 z-10 shadow-xs shadow-gray-600">
+      <nav className="flex flex-col items-center h-screen w-20 px-1 py-4 bg-gray-900 text-white fixed left-0 top-0 z-10 shadow-xs shadow-gray-600">
         <div>
           <Image
             className="logo"
@@ -54,14 +54,7 @@ const Navbar = () => {
                 Trending
               </Link>
             </li>
-            <li>
-              <Link
-                className="flex justify-center items-center flex-col hover:text-blue-400 transition-colors duration-200"
-                href="/"
-              >
-                Series
-              </Link>
-            </li>
+    
             <li>
     
               <Link

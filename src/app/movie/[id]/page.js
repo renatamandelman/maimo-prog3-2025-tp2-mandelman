@@ -1,6 +1,6 @@
 import InfoMovie from "@/components/InfoMovie";
 const Movie = async ({params}) => {
-      const {id} = await params;
+      const {id} =  params;
   return (
      <InfoMovie id={id}/>
   )

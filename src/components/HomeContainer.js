@@ -36,9 +36,10 @@ export default function HomeContainer() {
   }, []);
   return (
    <>
-     <main className="ml-25 bg-gray-600 m-6 rounded-xl shadow-md shadow-gray-400 p-1 ">
+     <main className="ml-25 bg-gray-600 m-6 rounded-xl shadow-md shadow-gray-700 p-1 ">
      
      <Hero movies={popularMovies}/>
+     <Header/>
     <Carrousel titulo="Las peliculas mas populares" movies={popularMovies} />
     <Carrousel titulo="Las peliculas del momento" movies={nowPlayingMovies} />
     

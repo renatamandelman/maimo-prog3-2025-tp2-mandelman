@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Card = ({ movie }) => {
   return (
-    <Link href={`/${movie.id}`}>
+    <Link href={`/movie/${movie.id}`}>
       <div className="p-4 border border-gray-800 rounded-lg bg-gray-400 hover:shadow-xl shadow-gray-700 transition-shadow duration-300 min-w-[15px] h-90 ">
         <div className="relative w-40 h-55">
           <Image
