@@ -10,7 +10,13 @@ export const AppContextProvider = ({ children }) => {
   }, [favorites]);
 
   const handleAddToFavorites = (title, image, id) => {
-    setFavorites([...favorites, { title, image, id }]);
+      const alreadyInFavorites = favorites.some((fav) => fav.id === id);
+
+  if (alreadyInFavorites) {
+    setFavorites(favorites.filter((fav) => fav.id !== id)); // quitar
+  } else {
+    setFavorites([...favorites, { title, image, id }]); // agregar
+  }
   };
 
   const favoritesQuantity = () => favorites.length

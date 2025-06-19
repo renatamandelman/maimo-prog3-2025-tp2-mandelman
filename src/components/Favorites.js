@@ -3,7 +3,10 @@ import FavoritesContainer from './FavoritesContainer'
 
 const Favorites = () => {
   return (
+    <>
+    <h1>Favorites</h1>
    <FavoritesContainer/>
+   </>
   )
 }
 

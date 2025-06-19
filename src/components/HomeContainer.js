@@ -19,14 +19,13 @@ export default function HomeContainer() {
         );
         const popularData = popular.data.results;
         setPopularMovies(popularData);
-        console.log(popularData);
+  
 
         const nowPlaying = await axios.get(
           `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=1`
         );
         const nowPlayingData = nowPlaying.data.results;
         setNowPlayingMovies(nowPlayingData);
-        console.log(nowPlayingData);
       } catch (error) {
         console.log("el error es:" + error);
         setError(true);
