@@ -15,7 +15,7 @@ const Hero = ({ movies }) => {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-0" />
 
 
-      <div className="relative z-10 max-w-[600px]">
+      <div className="relative lg:z-10 max-w-[600px]">
         <h2 className="text-3xl font-bold mb-2">{featuredMovie.title}</h2>
         <p className="text-sm text-gray-300 mb-4">
           {featuredMovie.release_date?.slice(0, 4)} •{" "}

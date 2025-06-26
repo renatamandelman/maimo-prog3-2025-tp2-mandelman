@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useAppContext } from "@/app/contexts/AppContext";
-const Card = ({ movie }) => {
+const CardFavorites = ({ movie }) => {
   const { favorites, handleAddToFavorites } = useAppContext();
 
   return (
@@ -12,7 +12,7 @@ const Card = ({ movie }) => {
       <div className="relative w-full min-h-50 max-h-60">
         <Image
           fill
-          src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w200/${movie.image}`}
           alt={movie.title}
           className="object-cover rounded"
         />
@@ -49,4 +49,4 @@ const Card = ({ movie }) => {
   );
 };
 
-export default Card;
+export default CardFavorites;

@@ -1,21 +1,47 @@
-'use client'
+"use client";
 import { useAppContext } from "@/app/contexts/AppContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 const Navbar = () => {
-  const {favoritesQuantity} = useAppContext();
+  const { favoritesQuantity } = useAppContext();
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
-      <nav className="flex flex-col items-center h-screen w-20 px-1 py-4 bg-gray-900 text-white fixed left-0 top-0 z-10 shadow-xs shadow-gray-600">
-        <div>
-          <Link  href="/">
-          <Image
-            className="logo"
-            src="/assets/img/icon.png"
-            alt="logo"
-            width={50}
-            height={50}
+      <button
+        className={`md:hidden fixed top-4 left-4 z-20 p-2 bg-gray-800 text-white rounded transition-opacity duration-200 ${
+          menuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
           />
+        </svg>
+      </button>
+      <nav
+        className={`fixed top-0 left-0 h-screen w-20 px-1 py-4 bg-gray-900 text-white shadow-xs shadow-gray-600 z-10
+  ${menuOpen ? "translate-x-0" : "-translate-x-full"} 
+  md:translate-x-0 md:flex md:flex-col md:items-center`}
+      >
+        <div>
+          <Link href="/">
+            <Image
+              className="logo"
+              src="/assets/img/icon.png"
+              alt="logo"
+              width={50}
+              height={50}
+            />
           </Link>
         </div>
         <div className="flex-1 flex flex-col justify-center items-center">
@@ -24,10 +50,9 @@ const Navbar = () => {
               <Link
                 className="flex flex-col items-center gap-1 hover:text-blue-400 transition-colors duration-200"
                 href="/"
+                onClick={() => setMenuOpen(false)}
               >
-            
                 <svg
-                
                   aria-hidden="true"
                   data-prefix="fal"
                   data-icon="home"
@@ -49,8 +74,13 @@ const Navbar = () => {
               <Link
                 className="flex justify-center items-center flex-col gap-1 hover:text-blue-400 transition-colors duration-200 lid "
                 href="/"
+                onClick={() => setMenuOpen(false)}
               >
-                <svg  className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <svg
+                  className="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                >
                   <path
                     fill="currentColor"
                     d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32H544c17.7 0 32 14.3 32 32V288c0 17.7-14.3 32-32 32s-32-14.3-32-32V205.3L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160H384z"
@@ -59,15 +89,24 @@ const Navbar = () => {
                 Trending
               </Link>
             </li>
-    
+
             <li>
-    
               <Link
                 className="flex justify-center items-center flex-col gap-1 hover:text-blue-400 transition-colors duration-200"
                 href="/favorites"
+                onClick={() => setMenuOpen(false)}
               >
-                <svg className="w-6 h-6"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
-                   {`Favorites: ${favoritesQuantity()}`}
+                <svg
+                  className="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"
+                  />
+                </svg>
+                Favorites
               </Link>
             </li>
           </ul>

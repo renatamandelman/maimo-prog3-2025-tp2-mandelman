@@ -14,7 +14,7 @@ const Header = () => {
 
     <div className="flex items-center ">
   <label htmlFor="simple-search" className="sr-only">
-    Buscar
+    Search
   </label>
 
   <div className=" w-full">

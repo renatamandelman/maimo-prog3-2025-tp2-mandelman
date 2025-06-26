@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Hero from "./Hero";
 import Header from "./Header";
+import Genres from "./Genres";
 // https://api.themoviedb.org/3/genre/movie/list?language=en'
 export default function HomeContainer() {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -35,14 +36,13 @@ export default function HomeContainer() {
   }, []);
   return (
    <>
-     <main className="ml-25 bg-gray-600 m-6 rounded-xl shadow-md shadow-gray-700 p-1 ">
-     
-     <Hero movies={popularMovies}/>
-     <Header/>
-    <Carrousel titulo="Las peliculas mas populares" movies={popularMovies} />
-    <Carrousel titulo="Las peliculas del momento" movies={nowPlayingMovies} />
-    
-</main>
+      <main className="sm:ml-12 lg:ml-24 my-6 lg:m-6  bg-gray-600 rounded-xl shadow-md shadow-gray-700 p-2">
+    <Hero movies={popularMovies} />
+    <Header />
+     <Genres/>
+    <Carrousel titulo="Popular Movies" movies={popularMovies} />
+    <Carrousel titulo="Release Movies" movies={nowPlayingMovies} />
+  </main>
 </>
   );
 }

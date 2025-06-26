@@ -2,6 +2,7 @@
 import { useAppContext } from "@/app/contexts/AppContext";
 import Card from "./Card";
 import Carrousel from "./Carrousel";
+import CardFavorites from "./CardFavorites";
 
 const FavoritesContainer = () => {
   const { favorites } = useAppContext();
@@ -14,7 +15,7 @@ const FavoritesContainer = () => {
       </div>
       <div className="flex flex-wrap gap-4 ">
         {favorites.map((movie) => (
-          <Card key={movie.id} movie={movie} />
+          <CardFavorites key={movie.id} movie={movie} />
         ))}
       </div>
     </div>

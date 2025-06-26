@@ -9,13 +9,13 @@ export const AppContextProvider = ({ children }) => {
     console.log(favorites);
   }, [favorites]);
 
-  const handleAddToFavorites = (title, image, id) => {
+  const handleAddToFavorites = (title, image, id, vote_average) => {
       const alreadyInFavorites = favorites.some((fav) => fav.id === id);
 
   if (alreadyInFavorites) {
     setFavorites(favorites.filter((fav) => fav.id !== id)); // quitar
   } else {
-    setFavorites([...favorites, { title, image, id }]); // agregar
+    setFavorites([...favorites, { title, image, id, vote_average }]); // agregar
   }
   };
 
