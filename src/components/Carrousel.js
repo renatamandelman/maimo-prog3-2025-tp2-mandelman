@@ -1,5 +1,4 @@
 import Card from "@/components/Card";
-import Filters from "@/components/Filters";
 
 const Carrousel = ({ movies = [], titulo }) => {
   return (
