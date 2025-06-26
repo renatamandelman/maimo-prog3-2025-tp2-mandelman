@@ -37,7 +37,7 @@ const InfoMovie = ({ id }) => {
 
       <h1 className="text-2xl sm:text-3xl font-bold mb-4">{movie.title}</h1>
 
-      {movie.tagline && <p className="italic text-gray-300 mb-6">"{movie.tagline}"</p>}
+      {movie.tagline && <p className="italic text-gray-300 mb-6">{movie.tagline}</p>}
 
       <div className="flex flex-col md:flex-row gap-6">
         <Image
